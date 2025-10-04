@@ -1,0 +1,33 @@
+<!DOCTYPE html> <!-- Indica que es un documento HTML5 -->
+
+<html><!--Indica el inicio del código-->
+    <head><!-- HEAD, contiene info que nose ve directamente-->
+
+        <title>PRUEBA NÚMERO 1</title><!-- Indica el nombre que aparece en la pestaa del navegador-->
+
+    </head>
+    
+
+    <body><!-- Indica que empieza el contenido de la página-->
+
+        <h1>USUARIOS</h1> <!-- Título principal de la página -->
+            <form action="/add" method="POST"> <!-- Crea el formulario que envía datos a la ruta "/add"-->
+                <input name="name" placeholder="Nombre" required><!-- Campo para excribir el nombre, name="name" es la clave para que flask acceda al dato-->
+                <input name="email" placeholder="Email" required><!-- Igual que el de arriba-->
+                <button type="submit">Agregar</button><!-- Botón para enviar el formulario-->
+            </form>
+        
+            <!-- Es un bucle Jinja, recorre cada usuario de Flask le paso desde app.py-->
+            <!-- Abre una lista en HTML-->
+            <ul>
+            {% for user in users %}
+            <li>
+                {{ user.name }} - {{ user.email }}
+                <a href="/edit/{{ user._id }}">Editar</a>
+                <a href="/delete/{{ user._id }}">Eliminar</a>
+            <li>
+            {% endfor %}
+        </ul>
+        <!-- es una forma de imprimir usuarios en HTML usando Jinja2, lo demás son enlaces para editar y eliminar al usuario, donde "user._i" es un identificador de mongo-->
+    </body>
+</html>

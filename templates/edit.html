@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EDITAR</title>
+    </head>
+
+    <body>
+        <h1>EDICIÓN DE USUARIO</h1>
+
+        <form action="/update/{{user._id}}" method="POST">
+            <input name = "name" value="{{user.name}}" required>
+            <input name = "email" value="{{user.email}}" required>
+            <button type="submit">Actualizar datos</button>
+        </form>
+
+        <a href="/">Canecelar edición</a>
+
+    </body>
+</html>
